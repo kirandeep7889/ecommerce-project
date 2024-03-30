@@ -65,7 +65,7 @@ const CartPage = () => {
         ))}
       </div>
       <h2 className="total-price">Total Price for all items: ₹{getTotalPrice()}</h2>
-      <Link to="/order" className="go-to-cart-link">Go to Orders →</Link>
+      <Link to="/orders" className="go-to-cart-link">Go to Orders →</Link>
 
 
       <ToastContainer position="top-center" autoClose={3000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />

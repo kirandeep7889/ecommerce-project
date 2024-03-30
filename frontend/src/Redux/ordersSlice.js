@@ -9,11 +9,8 @@ const initialState = {
 
 export const addOrder = createAsyncThunk(
   'orders/addOrder',
-  async ({ orderData, isLoggedIn }, { rejectWithValue }) => {
+  async (orderData, { rejectWithValue }) => {
     try {
-      if (!isLoggedIn) {
-        throw new Error("User is not logged in");
-      }
       const token = localStorage.getItem("token");
       const config = {
         headers: {
@@ -34,11 +31,8 @@ export const addOrder = createAsyncThunk(
 
 export const fetchUserOrders = createAsyncThunk(
   'orders/fetchUserOrders',
-  async ({ userId, isLoggedIn }, { rejectWithValue }) => {
+  async (userId, { rejectWithValue }) => {
     try {
-      if (!isLoggedIn) {
-        throw new Error("User is not logged in");
-      }
       const token = localStorage.getItem("token");
       const config = {
         headers: {
@@ -83,7 +77,7 @@ const orderSlice = createSlice({
       })
       .addCase(fetchUserOrders.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.payload.message;
+        state.error = action.payload;
       });
   },
 });
