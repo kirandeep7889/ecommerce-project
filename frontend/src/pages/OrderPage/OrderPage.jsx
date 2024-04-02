@@ -2,17 +2,33 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchUserOrders } from '../../Redux/ordersSlice';
 import styles from './OrderPage.module.css'; 
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 
 const OrderPage = () => {
     const dispatch = useDispatch();
     const orders = useSelector(store => store.orders.orders);
+    const loading = useSelector(store => store.orders.loading);
+    const error = useSelector(store => store.orders.error);
 
     useEffect(() => {
-        dispatch(fetchUserOrders());
-    },[dispatch]);
+        dispatch(fetchUserOrders())
+            .then(() => {
+                toast.success("Orders fetched successfully")
+            })
+            .catch((error) => {
+                toast.error('Failed to fetch orders. Please try again.');
+            });
+    }, [dispatch]);
 
     const userName = orders.length > 0 ? orders[0].user.name : '';
+
+    if (loading) {
+        return <div>Loading...</div>;
+    }
+
+    if (error) {
+        return <div>Error: {error.message}</div>;
+    }
 
     return (
         <div className={styles['order-container']}> 
