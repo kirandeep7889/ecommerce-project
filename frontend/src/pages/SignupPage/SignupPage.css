@@ -1,90 +1,110 @@
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 70vh;
-    margin-top: 50px;
-  }
-  
-  .center {
-    width: 500px;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .center h1 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #333;
-  }
-  
-  .txt_field {
-    position: relative;
-    margin-bottom: 30px;
-  }
-  
-  .txt_field input {
-    width: 100%;
-    padding: 10px;
-    background-color: #fff;
-    border: none;
-    border-bottom: 2px solid #ccc;
-    outline: none;
-    font-size: 16px;
-    color: #333;
-  }
-  
-  .txt_field input:focus {
-    border-bottom: 2px solid #007bff;
-  }
-  
-  .txt_field input::placeholder {
-    color: #ccc;
-  }
-  
-  .txt_field span::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0%;
-    height: 2px;
-    background-color: #007bff;
-    transition: 0.4s;
-  }
-  
-  .txt_field input:focus ~ span::before,
-  .txt_field input:valid ~ span::before {
-    width: 100%;
-  }
-  
-  input[type='submit'] {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    color: #fff;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  input[type='submit']:hover {
-    background-color: #0056b3;
-  }
-  
-  .login_link {
-    margin-top: 20px;
-    text-align: center;
-  }
-  
-  .login_link a {
-    color: #007bff;
-    text-decoration: none;
-  }
-  
-  .login_link a:hover {
-    text-decoration: underline;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+}
+
+.center {
+  width: 500px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 50px;
+
+}
+
+.center h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.txt_field {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.txt_field input {
+  width: 100%;
+  padding: 10px;
+  background-color: #fff;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  outline: none;
+  font-size: 16px;
+  color: #333;
+}
+
+.txt_field input:focus {
+  border-bottom: 2px solid #007bff;
+}
+
+.txt_field input::placeholder {
+  color: #ccc;
+}
+
+.txt_field span::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #007bff;
+  transition: 0.4s;
+}
+
+.txt_field input:focus ~ span::before,
+.txt_field input:valid ~ span::before {
+  width: 100%;
+}
+
+input[type='submit'] {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+input[type='submit']:hover {
+  background-color: #0056b3;
+}
+
+.toggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.toggle label {
+  margin-left: 10px;
+  font-size: 16px;
+  color: #333;
+}
+
+.login_link {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.login_link a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.login_link a:hover {
+  text-decoration: underline;
+}
+
+
+.label{
+  font-weight: bolder;
+  font-size: xx-large;
+}

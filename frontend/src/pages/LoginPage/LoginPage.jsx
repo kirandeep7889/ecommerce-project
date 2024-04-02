@@ -1,5 +1,5 @@
 import React, { useReducer } from 'react';
-import { toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Link, useNavigate } from 'react-router-dom';
 import "./LoginPage.css"
@@ -58,7 +58,7 @@ function LoginPage() {
           <div className='login_link'>
             New User? <Link to='/Signup'>Signup Here</Link>
           </div>
-
+          <ToastContainer position="top-center" autoClose={3000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
         </form>
       </div>
     </div>

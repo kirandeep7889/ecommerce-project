@@ -6,6 +6,10 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { fetchProducts } from '../../Redux/productsSlice';
 import { addItemToCart } from '../../Redux/cartSlice';
+// import { addToWishlist } from '../../Redux/wishlistSlice'; // Import addToWishlist action
+import SearchBar from '../../components/SearchBar/SearchBar';
+import CategoryDropdown from '../../components/CategoryDropDown/CategoryDropDowm';
+import { addItemToWishlist } from '../../Redux/wishListSlice';
 
 const HomePage = () => {
   const [loading, setLoading] = useState(false);
@@ -31,9 +35,17 @@ const HomePage = () => {
     toast.success('Item added to cart successfully!');
   };
 
+  const handleAddToWishlist = (product) => {
+    dispatch(addItemToWishlist(product))
+  };
+
   return (
     <div className="home-page-container">
-      <h1>PRODUCTS</h1>
+      <div className='Sort-container'>
+          <CategoryDropdown/>
+          <SearchBar/>
+      </div>
+      <Link className='cartLink' to="/cart" >Go to Cart →</Link>
       {loading ? (
         <p>Loading...</p>
       ) : (
@@ -48,13 +60,13 @@ const HomePage = () => {
                 <p className="product-price">Price: {formatPriceToINR(product.price)}</p>
                 <p className="product-category">Category: {product.category}</p>
                 <p className="product-stock">Stocks: {product.rating.count}</p>
-                <button onClick={() => handleAddToCart(product)}>Add to Cart</button>
+                <button className='addCartBtn' onClick={() => handleAddToCart(product)}>Add to Cart</button>
+                <button className='addWishlistbtn' onClick={() => handleAddToWishlist(product)}>Add to Wish List</button> 
               </div>
             </div>
           ))}
         </div>
       )}
-      <Link to="/cart" className="go-to-cart-link">Go to Cart →</Link>
 
       <ToastContainer position="top-center" autoClose={3000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
     </div>

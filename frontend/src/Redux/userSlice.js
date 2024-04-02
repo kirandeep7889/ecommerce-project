@@ -1,6 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { toast } from "react-toastify";
+const base_url=import.meta.env.VITE_API_URL;
+
 
 
 const initialState = {
@@ -12,10 +14,9 @@ const initialState = {
 export const signUp = createAsyncThunk(
     'user/signUp',
     async (userData, { rejectWithValue }) => {
-        console.log(userData)
 
       try {
-        const response = await axios.post(`https://ecommerce-project-3smr.onrender.com/api/v1/user/signup`, userData);
+        const response = await axios.post(`${base_url}/user/signup`, userData);
         return response.data;
       } catch (error) {
         if (error.response && error.response.data) {
@@ -31,7 +32,7 @@ export const signUp = createAsyncThunk(
     'user/login',
     async (userData, { rejectWithValue }) => {
       try {
-        const response = await axios.post('https://ecommerce-project-3smr.onrender.com/api/v1/user/login', userData);
+        const response = await axios.post(`${base_url}/user/login`, userData);
         return response.data; 
       } catch (error) {
         if (error.response && error.response.data) {
@@ -57,7 +58,7 @@ const userSlice = createSlice({
         state.loading = false;
         state.user = action.payload.newUser;
         toast.success("Sign up successful")
-        localStorage.setItem('token', action.payload.token); 
+        localStorage.setItem("token", action.payload.token); 
       })
       .addCase(signUp.rejected, (state, action) => {
         state.loading = false;

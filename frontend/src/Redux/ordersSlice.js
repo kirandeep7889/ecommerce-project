@@ -1,5 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+const base_url=import.meta.env.VITE_API_URL;
+
+
 
 const initialState = {
   orders: [],
@@ -17,7 +20,7 @@ export const addOrder = createAsyncThunk(
           Authorization: token,
         }
       }
-      const response = await axios.post('https://ecommerce-project-3smr.onrender.com/api/v1/orders/', orderData, config);
+      const response = await axios.post(`${base_url}/orders/`, orderData, config);
       return response.data; 
     } catch (error) {
       if (error.response && error.response.data) {
@@ -39,7 +42,7 @@ export const fetchUserOrders = createAsyncThunk(
           Authorization: token,
         }
       }
-      const response = await axios.get(`https://ecommerce-project-3smr.onrender.com/api/v1/orders`, config);
+      const response = await axios.get(`${base_url}/orders`, config);
       return response.data; 
     } catch (error) {
       if (error.response && error.response.data) {

@@ -67,3 +67,40 @@
   .Header-center h2:hover::after {
     width: 100%;
   }
+
+
+  .Header-right {
+    display: flex;
+    align-items: center;
+  }
+
+  
+.MenuButton {
+  color: #333333;
+}
+
+.Menu {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.MenuItem {
+  padding: 10px 20px;
+  font-size: 16px;
+  /* color: #333333; */
+  text-decoration: none;
+  color: black;
+  
+}
+
+.MenuItem:hover {
+  background-color: #f5f5f5;
+}
+
+h2{
+  text-align: center;
+  color: #0056b3;
+  border-bottom: 1px solid black;
+}

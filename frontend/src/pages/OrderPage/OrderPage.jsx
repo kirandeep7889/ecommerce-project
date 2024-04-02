@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchUserOrders } from '../../Redux/ordersSlice';
 import styles from './OrderPage.module.css'; 
+import { ToastContainer } from 'react-toastify';
 
 const OrderPage = () => {
     const dispatch = useDispatch();
@@ -38,6 +39,7 @@ const OrderPage = () => {
                     </div>
                 ))}
             </div>
+            <ToastContainer position="top-center" autoClose={3000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
         </div>
     );
 };
